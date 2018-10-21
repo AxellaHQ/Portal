@@ -1,4 +1,6 @@
-# portal
+# Axella::Portal
+
+Axella::Portal は、アクセラユーザー用のポータルサービスです。
 
 ## Project setup
 ```
