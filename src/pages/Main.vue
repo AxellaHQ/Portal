@@ -1,5 +1,6 @@
 <template lang="pug">
-router-view
+#root
+	router-view
 </template>
 
 
@@ -14,12 +15,8 @@ export default class Main extends Vue {
 </script>
 
 <style lang="scss" scoped>
+
 #root {
-	background: #4C4A48;
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+	color: white;
 }
 </style>

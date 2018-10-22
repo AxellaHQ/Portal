@@ -17,3 +17,10 @@ export default class App extends Vue {
   
 }
 </script>
+
+<style lang="scss">
+body {
+  background-color: #202020;
+  color: #fafafa;
+}
+</style>

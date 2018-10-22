@@ -3,7 +3,7 @@
 	img(src="@/assets/primary_logo.png" alt="Axella")
 	input(type="text", placeholder="Your ID", v-model="name")
 	input(type="password", placeholder="Password", v-model="password")
-	button(@click="login") ログイン
+	button(@click="login", :disabled="!canLogin") ログイン
 </template>
 
 
@@ -17,6 +17,9 @@ import Welcome from '@/pages/Welcome.vue';
 export default class Index extends Vue {
 	private name = "";
 	private password = "";
+
+	public get canLogin() { return !!this.name && !!this.password }
+
 	/**
 	 * login
 	 */
@@ -92,6 +95,11 @@ body {
 		&:active {
 			box-shadow: 0 0 2px #757575;
 			background: #64B5F6;
+		}
+
+		&:disabled {
+			box-shadow: none;
+			background: #757575;
 		}
 	} 
 
