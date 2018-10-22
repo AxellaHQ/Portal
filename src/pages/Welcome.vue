@@ -1,9 +1,9 @@
 <template lang="pug">
 #welcome
 	img(src="@/assets/primary_logo.png" alt="Axella")
-	input(type="text", placeholder="Your ID")
-	input(type="password", placeholder="Password")
-	button ログイン
+	input(type="text", placeholder="Your ID", v-model="name")
+	input(type="password", placeholder="Password", v-model="password")
+	button(@click="login") ログイン
 </template>
 
 
@@ -15,7 +15,17 @@ import Welcome from '@/pages/Welcome.vue';
 @Component({
 })
 export default class Index extends Vue {
-
+	private name = "";
+	private password = "";
+	/**
+	 * login
+	 */
+	public login() {
+		this.$store.dispatch("login", {
+			userName: this.name,
+			password: this.password,
+		})
+	}
 }
 </script>
 
