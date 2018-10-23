@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import DashBoard from "@/views/DashBoard.vue";
+import Status from "@/views/DashBoard.vue";
+import Wip from "@/views/Wip.vue";
 
 Vue.use(Router);
 
@@ -10,8 +11,28 @@ export default new Router({
 	routes: [
 		{
 			path: "/",
-			name: "dashboard",
-			component: DashBoard,
+			name: "status",
+			component: Status,
+		},
+		{
+			path: "/me",
+			name: "me",
+			component: Wip,
+		},
+		{
+			path: "/drive",
+			name: "drive",
+			component: Wip,
+		},
+		{
+			path: "/download",
+			name: "download",
+			component: Wip,
+		},
+		{
+			path: "/setting",
+			name: "setting",
+			component: Wip,
 		},
 	],
 });
