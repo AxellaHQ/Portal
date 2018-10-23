@@ -3,14 +3,14 @@
 	img(src="@/assets/primary_logo.png" alt="Axella")
 	input(type="text", placeholder="Your ID", v-model="name")
 	input(type="password", placeholder="Password", v-model="password")
-	button(@click="login", :disabled="!canLogin") ログイン
+	button(@click="login", :disabled="!canLogin") ãƒ­ã‚°ã‚¤ãƒ³
 </template>
 
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Main from '@/pages/Main.vue';
-import Welcome from '@/pages/Welcome.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Main from "@/pages/Main.vue";
+import Welcome from "@/pages/Welcome.vue";
 
 @Component({
 })
@@ -18,7 +18,7 @@ export default class Index extends Vue {
 	private name = "";
 	private password = "";
 
-	public get canLogin() { return !!this.name && !!this.password }
+	public get canLogin() { return !!this.name && !!this.password; }
 
 	/**
 	 * login
@@ -27,7 +27,7 @@ export default class Index extends Vue {
 		this.$store.dispatch("login", {
 			userName: this.name,
 			password: this.password,
-		})
+		});
 	}
 }
 </script>
