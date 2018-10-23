@@ -1,5 +1,5 @@
 <template lang="pug">
-#root
+#main
 	.container
 		header.navbar
 			button.hamburger(@click="menuIsVisible = !menuIsVisible" :class="{ active: menuIsVisible }")
@@ -8,13 +8,14 @@
 				.line-3
 			h1 Axella
 		.row
-			transition(name="fade" mode="in-out")
+			transition(name="slide" mode="in-out")
 				nav.col-3(v-show="menuIsVisible")
 					.menu
 						v-menu(@selected="selected()")
 			div(:class="menuIsVisible ? 'col-9' : 'col-12'")
 				main.view-container
-					router-view
+					transition(name="fade" mode="in-out")
+						router-view
 </template>
 
 
@@ -34,17 +35,20 @@ export default class Main extends Vue {
 	private readonly threshold = 768;
 
 	public mounted() {
-		window.addEventListener("resize", (ev) => {
-			if (this.prevInnerWidth < this.threshold && window.innerWidth < this.threshold) {
-				// しきい値より小さくなった瞬間メニューを非表示
-				this.menuIsVisible = false;
-			} else if (this.prevInnerWidth > this.threshold && window.innerWidth > this.threshold) {
-				// しきい値より小さくなった瞬間メニューを表示
-				this.menuIsVisible = true;
-			}
+		this.menuSnap();
+	}
 
-			this.prevInnerWidth = window.innerWidth;
-		});
+	public menuSnap() {
+		if (this.prevInnerWidth >= this.threshold && window.innerWidth < this.threshold) {
+			// しきい値より小さくなった瞬間メニューを非表示
+			this.menuIsVisible = false;
+		} else if (this.prevInnerWidth <= this.threshold && window.innerWidth > this.threshold) {
+			// しきい値より大きくなった瞬間メニューを表示
+			this.menuIsVisible = true;
+		}
+
+		this.prevInnerWidth = window.innerWidth;
+		setTimeout(this.menuSnap, 100);
 	}
 
 	public selected() {
@@ -57,7 +61,7 @@ export default class Main extends Vue {
 
 <style lang="scss" scoped>
 
-#root {
+#main {
 	color: white;
 	height: 100vh;
 	display: flex;
@@ -82,8 +86,11 @@ export default class Main extends Vue {
 		.hamburger {
 			border: none;
 			background: none;
+			display: none;
 			outline: none;
 			height: 2rem;
+			transform: translateX(-100%);
+			opacity: 0;
 			margin-right: 1rem;
 			box-shadow: 0 0 2px #202020;
 			transition: all 0.2s ease;
@@ -122,17 +129,19 @@ export default class Main extends Vue {
 	}
 
 	.view-container {
-		color: #242424;
 		padding: 0.4rem;
-		background: #fafafa;
-		transition: all .2s ease-out;
 	}
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active, .fade-leave-active, .slide-enter-active, .slide-leave-active {
   transition: all .2s ease-out;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  position: absolute;
+  opacity: 0;
+}
+
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
   position: absolute;
   transform: translateX(-100%);
   opacity: 0;
@@ -147,16 +156,16 @@ export default class Main extends Vue {
 		margin: 0;
 	}
 
+	.hamburger {
+		display: block !important;
+		transform: none !important;
+		opacity: 1 !important;
+	}
+
 	nav.col-3 {
 		padding: 0;
 		margin: 0;
 	}
-	
-	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-		position: absolute;
-		z-index: 1;
-		opacity: 0;
-		}
 }
 
 </style>

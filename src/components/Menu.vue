@@ -2,7 +2,7 @@
 #menu
 	.menu-container
 		router-link.item(to="/" @click.native="$emit('selected')") ステータス
-		router-link.item(to="/account" @click.native="$emit('selected')") アカウント
+		router-link.item(to="/me" @click.native="$emit('selected')") アカウント
 		router-link.item(to="/drive" @click.native="$emit('selected')") Axella Drive
 		router-link.item(to="/download" @click.native="$emit('selected')") ダウンロード
 		router-link.item(to="/setting" @click.native="$emit('selected')") 設定
