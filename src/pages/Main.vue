@@ -14,7 +14,7 @@
 						v-menu(@selected="selected()")
 			div(:class="menuIsVisible ? 'col-9' : 'col-12'")
 				main.view-container
-					transition(name="fade" mode="in-out")
+					transition(name="fade" mode="out-in")
 						router-view
 </template>
 
@@ -62,7 +62,6 @@ export default class Main extends Vue {
 <style lang="scss" scoped>
 
 #main {
-	color: white;
 	height: 100vh;
 	display: flex;
 
@@ -82,6 +81,7 @@ export default class Main extends Vue {
 		padding: 0 2rem;
 		background: #fafafa;
 		height: 4rem;
+		box-shadow: 0 0px 2px #202020;
 		
 		.hamburger {
 			border: none;
@@ -134,7 +134,7 @@ export default class Main extends Vue {
 }
 
 .fade-enter-active, .fade-leave-active, .slide-enter-active, .slide-leave-active {
-  transition: all .2s ease-out;
+  transition: all .1s ease-out;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   position: absolute;
