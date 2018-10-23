@@ -1,23 +1,13 @@
 <template lang="pug">
-#root
-	ul
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
-		li ねこ
+#menu
+	.menu-container
+		router-link.item(to="/" @click.native="$emit('selected')") ステータス
+		router-link.item(to="/account" @click.native="$emit('selected')") アカウント
+		router-link.item(to="/drive" @click.native="$emit('selected')") Axella Drive
+		router-link.item(to="/download" @click.native="$emit('selected')") ダウンロード
+		router-link.item(to="/setting" @click.native="$emit('selected')") 設定
+	
+	a.danger(href="#", @click="logout($event)") ログアウト
 
 </template>
 
@@ -28,9 +18,38 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({
 })
 export default class Menu extends Vue {
-
+	public logout(e: MouseEvent) {
+		e.preventDefault();
+		this.$store.dispatch("logout");
+	}
 }
 </script>
 
 <style lang="scss" scoped>
+.menu-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	margin-bottom: 4rem;
+
+	.item {
+		padding: 1rem;
+		text-decoration: none;
+		color: #242424;
+		&.router-link-exact-active {
+			border: solid 1px #2196F3;
+			border-left-width: 0.5rem;
+		}
+
+		transition: all 0.2s ease;
+	}
+}
+
+.danger {
+	display: block;
+	padding: 1rem;
+	text-decoration: none;
+	color: #f44336;
+}
+
 </style>
