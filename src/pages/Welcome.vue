@@ -3,7 +3,7 @@
 	img(src="@/assets/primary_logo.png" alt="Axella")
 	input(type="text", placeholder="Your ID", v-model="name")
 	input(type="password", placeholder="Password", v-model="password")
-	button(@click="login", :disabled="!canLogin") ãƒ­ã‚°ã‚¤ãƒ³
+	button(@click="login", :disabled="!canLogin") ログイン
 </template>
 
 
@@ -33,9 +33,6 @@ export default class Index extends Vue {
 </script>
 
 <style lang="scss">
-body {
-	margin: 0;
-}
 #welcome {
 	margin: auto;
 	background: linear-gradient(#B2DFDB 60%, #009688);
@@ -50,15 +47,14 @@ body {
 	justify-content: center;
 	flex-direction: column;
 
+	* {
+		margin-bottom: 2rem;
+	}
+
 	img {
 		max-width: 25rem;
 		width: 25rem;
 		height: auto;
-	}
-
-	* {
-		margin-bottom: 2rem;
-		font-size: 16px;
 	}
 
 	input[type="text"], input[type="password"] {

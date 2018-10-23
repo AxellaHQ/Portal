@@ -1,5 +1,5 @@
 <template lang="pug">
-	h1 WIP!
+	p サークル結成から今日で{{ day }}日目
 </template>
 
 
@@ -8,7 +8,11 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class DashBoard extends Vue {
+	private day = 0;
 
+	public mounted() {
+		this.day = 300;
+	}
 }
 </script>
 
