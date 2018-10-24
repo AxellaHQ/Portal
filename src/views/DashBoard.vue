@@ -1,14 +1,14 @@
 <template lang="pug">
 	#status
-		.card
+		.card.window
 			.header チーム結成から
 			.main {{ day }}
 			.footer 日目
-		.card
+		.card.window
 			.header メンバー数
 			.main {{ member }}
 			.footer 人
-		.card
+		.card.window
 			.header.bold お知らせ
 			p Axella ポータルができました！まだ機能は少ないですが、メンバーのために開発を続けています！
 			p 要望は
@@ -33,6 +33,7 @@ export default class DashBoard extends Vue {
 </script>
 
 <style lang="scss" scoped>
+$grow-color: #00bcd4;
 #status {
 	text-align: center;
 	display: flex;
@@ -41,17 +42,13 @@ export default class DashBoard extends Vue {
 	flex-wrap: wrap;
 	align-items: left;
 	.card {
-		background: #fafafa;
-		color: #242424;
-		padding: 0.8rem;
-		margin: 0.8rem;
+		margin-bottom: 2rem;
 		text-align: left;
+		font-weight: 100;
 		.header, .footer {
 			display: block;
-			font-size: 1.2rem;
-			color: #404040;
+			font-size: 1.4rem;
 			margin: 1rem 0;
-			font-weight: bold;
 		}
 
 		.footer {
@@ -61,7 +58,6 @@ export default class DashBoard extends Vue {
 		.main {
 			display: inline-block;
 			font-size: 3rem;
-			font-weight: bold;
 		}
 	}
 }

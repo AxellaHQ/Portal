@@ -1,13 +1,29 @@
 @import "./simple-grid";
 
+$grow-color: #00bcd4;
+$grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
+$background: linear-gradient(#006064 40%, #004749);
+$foreground: #80DEEA;
+
 * {
 	font-size: 16px;
 }
 
 body {
-	background: linear-gradient(#B2DFDB 60%, #009688);
+	background: $background;
 	background-attachment: fixed;
-	color: #202020;
+	color: $foreground;
 	margin: 0;
 	padding: 0;
+}
+
+a {
+	color: $foreground;
+}
+
+.window {
+	padding: 1.5rem;
+	background: none;
+	box-shadow: $grows;
+	border-radius: 6px;
 }

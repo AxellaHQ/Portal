@@ -10,7 +10,7 @@
 		.row
 			transition(name="slide" mode="in-out")
 				nav.col-3(v-show="menuIsVisible")
-					.menu
+					.menu.window
 						v-menu(@selected="selected()")
 			div(:class="menuIsVisible ? 'col-9' : 'col-12'")
 				main.view-container
@@ -60,7 +60,8 @@ export default class Main extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+$grow-color: #00bcd4;
+$grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 #main {
 	height: 100vh;
 	display: flex;
@@ -79,10 +80,12 @@ export default class Main extends Vue {
 		align-items: center;
 		justify-content: left;
 		padding: 0 2rem;
-		background: #fafafa;
+		background: none;
+		margin-bottom: 1rem;
 		height: 4rem;
-		box-shadow: 0 0px 2px #202020;
-		
+		border-bottom: 1px solid $grow-color;
+		box-shadow: 0 0 8px $grow-color;
+
 		.hamburger {
 			border: none;
 			background: none;
@@ -92,44 +95,39 @@ export default class Main extends Vue {
 			transform: translateX(-100%);
 			opacity: 0;
 			margin-right: 1rem;
-			box-shadow: 0 0 2px #202020;
 			transition: all 0.2s ease;
 
 			&:hover {
-				box-shadow: 0 0 8px #202020;
+				box-shadow: 0 0 8px $grow-color;
 			}
 
 			&:active {
-				box-shadow: 0 0 1px #202020;
+				box-shadow: 0 0 1px $grow-color;
 			}
 
 			&.active {
-				box-shadow: 0 0 2px #202020 inset;
+				box-shadow: 0 0 6px $grow-color inset, 0 0 6px $grow-color;
 			}
 
 			.line-1, .line-2, .line-3 {
 				display: block;
 				width: 16px;
-				height: 1px;
-				background: #242424;
+				height: 2px;
 				margin: 4px 2px;
 				padding: none;
+				box-shadow: $grows;
 			}
 		}
 		h1 {
 			font-size: 1.2rem;
-			font-weight: 100;
-			color: #FF5722;
+			color: #fafafa;
 		}
 	}
 
 	.menu {
-		padding: 0.4rem;
-		background: #fafafa;
 	}
 
 	.view-container {
-		padding: 0.4rem;
 	}
 }
 
@@ -150,6 +148,7 @@ export default class Main extends Vue {
 @media screen and (max-width: 768px) {
 	.menu {
 		position: absolute;
+		background: #004749;
 		left: 0;
 		right: 0;
 		padding: 0;

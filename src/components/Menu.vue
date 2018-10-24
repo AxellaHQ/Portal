@@ -26,6 +26,8 @@ export default class Menu extends Vue {
 </script>
 
 <style lang="scss" scoped>
+$grow-color: #00bcd4;
+$grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 .menu-container {
 	display: flex;
 	flex-direction: column;
@@ -35,10 +37,10 @@ export default class Menu extends Vue {
 	.item {
 		padding: 1rem;
 		text-decoration: none;
-		color: #242424;
 		&.router-link-exact-active {
-			border: solid 1px #2196F3;
-			border-left-width: 0.5rem;
+			padding-left: 1.4rem;
+			box-shadow: $grows;
+			border-radius: 6px;
 		}
 
 		transition: all 0.2s ease;
@@ -49,6 +51,7 @@ export default class Menu extends Vue {
 	display: block;
 	padding: 1rem;
 	text-decoration: none;
+	font-weight: bold;
 	color: #f44336;
 }
 
