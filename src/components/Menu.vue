@@ -57,4 +57,17 @@ $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 	color: #f44336;
 }
 
+
+
+@media screen and (max-width: 768px) {
+	.menu-container {
+		margin: 0;
+		padding: 1rem 0;
+	}
+
+	.danger {
+		margin: 1rem;
+	}
+}
+
 </style>

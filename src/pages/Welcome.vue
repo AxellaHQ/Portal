@@ -33,9 +33,12 @@ export default class Index extends Vue {
 </script>
 
 <style lang="scss">
+$grow-color: #00bcd4;
+$grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
+$off-color: #BDBDBD;
+$off: 0 0px 16px $off-color, 0 0px 16px $off-color inset;
 #welcome {
 	margin: auto;
-	background: linear-gradient(#B2DFDB 60%, #009688);
 	position: relative;
 	width: 100vw;
 	height: 100vh;
@@ -54,48 +57,52 @@ export default class Index extends Vue {
 	img {
 		max-width: 25rem;
 		width: 25rem;
+		filter: drop-shadow(0 0 16px #242424);
 		height: auto;
 	}
 
 	input[type="text"], input[type="password"] {
 		padding: 0.8rem;
 		border: none;
-		border-bottom: 2px solid #424242;
+		border-radius: 8px;
+		color: #fafafa;
+		outline: none;
+		transition: all 0.25s ease-out;
 		background: transparent;
+		box-shadow: $off;
 
 		&:focus {
-			background: #fafafa;
-			border-color: #009688;
+			box-shadow: $grows;
+			border-radius: 16px;
+		}
+		&::placeholder {
+			color: #BDBDBD;
 		}
 
-		&:hover {
-			box-shadow: 0 0 3px #757575;
-		}
-		outline: none;
-		transition: all 0.1s ease-out;
 	}
 
 	button {
-		background: #2196F3;
+		background: rgba(#fff, 0.1);
 		color: #fafafa;
 		padding: 0.8rem;
-		box-shadow: 0 0 12px #757575;
+		box-shadow: $grows;
+		border-radius: 8px;
 		border: none;
 		transition: all 0.1s ease-out;
 		outline: none;
 
 		&:hover {
-			box-shadow: 0 0 24px #757575;
+			border-radius: 16px;
 		}
 
 		&:active {
-			box-shadow: 0 0 2px #757575;
 			background: #64B5F6;
 		}
 
 		&:disabled {
 			box-shadow: none;
-			background: #757575;
+			background: transparent;
+			color: #757575;
 		}
 	} 
 

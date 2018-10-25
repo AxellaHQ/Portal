@@ -69,10 +69,10 @@ $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 	justify-content: stretch;
 
 	.container {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		max-width: 100%;
+		 margin: 0;
+		 padding: 0;
+		 width: 100%;
+		 max-width: 100%;
 	}
 
 	.navbar {
@@ -141,7 +141,8 @@ $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 
 .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
   position: absolute;
-  transform: translateX(-100%);
+  transform: scale(0, 0);
+  transform-origin: 50% 50%;
   opacity: 0;
 }
 
@@ -149,10 +150,10 @@ $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 	.menu {
 		position: absolute;
 		background: #004749;
-		left: 0;
-		right: 0;
-		padding: 0;
-		margin: 0;
+		left: .5rem;
+		right: .5rem;
+		padding: .5rem;
+		margin: .5rem;
 	}
 
 	.hamburger {
