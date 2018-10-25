@@ -27,7 +27,7 @@ export default new Router({
 			name: "drive",
 			component: Wip,
 			props: {
-				desc: "Axella Driveでは、１人100GBのクラウドドライブを自由に使えます。ウェブフォルダーにファイルを入れるだけで、ウェブサイトの公開もできるので、ご自由にお使いください(php, cgiなどは動作しません)。",
+				desc: "Axella Driveでは、１人1GBのクラウドドライブを自由に使えます。ウェブフォルダーにファイルを入れるだけで、ウェブサイトの公開もできるので、ご自由にお使いください(php, cgiなどは動作しません)。",
 			}
 		},
 		{
