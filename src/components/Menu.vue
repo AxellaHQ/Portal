@@ -29,6 +29,7 @@ export default class Menu extends Vue {
 $grow-color: #00bcd4;
 $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 .menu-container {
+	margin: -1.5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
@@ -39,8 +40,8 @@ $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 		text-decoration: none;
 		&.router-link-exact-active {
 			padding-left: 1.4rem;
-			box-shadow: $grows;
-			border-radius: 6px;
+			background: rgba(#fafafa, 0.1);
+			//border-radius: 6px;
 		}
 
 		transition: all 0.2s ease;
@@ -49,7 +50,8 @@ $grows: 0 0px 16px $grow-color, 0 0px 16px $grow-color inset;
 
 .danger {
 	display: block;
-	padding: 1rem;
+	margin: -0.5rem;
+	height: 3rem;
 	text-decoration: none;
 	font-weight: bold;
 	color: #f44336;

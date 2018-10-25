@@ -1,14 +1,14 @@
 <template lang="pug">
 	#status
-		.card.window
+		.card
 			.header チーム結成から
 			.main {{ day }}
 			.footer 日目
-		.card.window
+		.card
 			.header メンバー数
 			.main {{ member }}
 			.footer 人
-		.card.window
+		.card
 			.header.bold お知らせ
 			p Axella ポータルができました！まだ機能は少ないですが、メンバーのために開発を続けています！
 			p 要望は
