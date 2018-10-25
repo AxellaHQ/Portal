@@ -27,7 +27,7 @@ export default class DashBoard extends Vue {
 	private member = 24;
 
 	public mounted() {
-		this.day = 300;
+		this.day = Math.ceil((Number(new Date()) - Number(new Date("2018/7/19"))) / 86400000);
 	}
 }
 </script>
